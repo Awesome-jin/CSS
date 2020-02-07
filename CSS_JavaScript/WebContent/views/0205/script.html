@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<script>
+		//변수만들기
+		var msg = "자바스크립트";
+
+		//브라우저에 출력
+		document.write(msg + "<br/>");  //"<br/>"이 줄바꿈
+
+		//대화상자에 출력
+		alert("대화상자에 출력");
+
+		//콘솔에 출력
+		console.log("콘솔에 출력");
+
+		//자바 스크림트에서는 변수를 만들고 대입하지 않으면 없는걸로 간주해버린다.
+		var x;
+		document.write(x + "<br/>"); //이게 undefined
+		
+		document.write("20" * 10 + "<br/>"); //숫자로 구성된 문자열의 곱셈은 숫자로 변환해서 계산함
+		document.write("20" + 10 + "<br/>"); //문자열+숫자열 = 문자열+문자열 결합처리
+		document.write(Number("20") + 10 + "<br/>");  //문자열의 강제 숫자열 형변환
+		
+		document.write((20&13) + "<br/>"); //4
+		document.write((20|13) + "<br/>"); //29
+		document.write((20^13) + "<br/>"); //25
+	</script>
+
+</body>
+</html>

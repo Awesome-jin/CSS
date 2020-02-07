@@ -1,0 +1,89 @@
+/* <h1 class="korea"> 대한민국 </h1> 를 꾸며주려면
+h1 기준으로 하려면 
+
+h1{
+	
+}
+
+class 기준으로 하려면 .korea{}로 해주면 된다 */
+
+/*여러 속성의 값을 한 번에 적용할 때, 공백으로 구분 */
+/* ,는 동일한 속성의 값을 여러 개 적용할 때 구분 */
+/* 여러개 지정 가능한 경우, 뒤에서 부터 값 생략 가능 */
+/* css나 javascript는 옵션에 전부 기본 값이 있음 */
+
+/*-- 클래스 단위로 스타일 입힐게! */
+
+.korea{
+	color:#777777;
+	widht : 200px;
+	padding : 30px; /* padding은 경계선과 컨텐츠와의 여백 */
+	border : 1px solid rgb(18,52,55);
+	backgroud : #eeeeee;
+	border-radius : 15px;
+	box-shadow: outset 0px 0px 20px 15px rgba(18,52,55,0.7);
+}
+
+
+.korea p{vertical-align:middle;}
+
+
+/* train 클래스를 가진 객체를 left->right로 배치할 수 있도록 설정 */
+.train{
+	float : left;
+	margin : 20px;
+}
+
+/* title 클래스를 가진 객체는 이전 float를 해제하고 배치하도록 설정 */
+.title{
+	clear:both;
+}
+
+
+table{
+	border : 1px solid black;
+}
+
+th,td {
+	width : 100px;
+}
+
+.capital{
+	width : 400px;
+	heigth : 100px;
+	overflow : auto;
+}
+
+
+#transform{
+	width : 100px;
+	height : 50px;
+	text-align : center;
+	background-color : black;
+	color : grey;
+	
+	/* transform 변환은 원본의 속성이 변경하는게 아니고 출력할 때
+	행렬과의 연산을 이용해서 보이기만 그렇게 되도록 하는 것 = 겹침 발생 가능 */
+	/* -webkit-transform : scale(1.0); */
+	/* -webkit-transform : rotate(15deg); */
+	/* -webkit-transform : skew(15deg,15deg); */
+}
+
+
+#menu{
+	font:50px;
+	width:150px;
+	height:20px;
+	color:navy;
+	backgroud:#abc;
+	
+	-webkit-transition:width 2.0s;
+	-webkit-transition:color 2.0s;
+	-webkit-transition:background-color 2.0s;
+}
+
+#menu:hover{
+	width:200px;
+	color:red;
+	backgroud:#abc;
+}

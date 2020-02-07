@@ -1,0 +1,52 @@
+@charset "UTF-8";
+
+#menu{
+	font:50pt;
+	width:150px;
+	height:20px;
+	color:navy;
+	backgroud-color:#abc;
+	
+	-webkit-transition:width 2.0s;
+	-webkit-transition:color 2.0s;
+	-webkit-transition:background-color 2.0s;
+}
+
+#menu:hover{
+	width:200px;
+	color:red;
+	backgroud-color:#abc;
+}
+
+
+/*@-webkit-keyframes 애니메이션 이름{
+	from {시작값 설정}
+	to{종료값 설정}
+	}*/
+	
+@-webkit-keyframes ball{
+	from {
+	left: 0px;
+	-webkit-transform:rotate(0deg);
+	}
+	/*duration의 50%까지는 이걸 적용 시켜라*/
+	50%{
+		left:300px;
+	}
+	/*50% 이후로는 이 액션을 적용시켜라*/
+	to{
+		background-color:black;
+		-webkit-transform:rotate(3600deg);
+	}
+}
+
+img{
+	position:absolute;
+	-webkit-animation-name:ball;
+	-webkit-animation-duration:5s;
+	/*infinite는 무한대로 시행*/
+	-webkit-animation-iteration-count:infinite;
+	/*alternate 명령어를 주면 반대로 진행함*/
+	-webkit-animation-direction:alternate;
+}
+
