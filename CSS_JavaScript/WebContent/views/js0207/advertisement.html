@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>광고같은 이미지</title>
+
+</head>
+<body>
+
+	<img src =".././../Resources/images/pt1.png" width="500" height="450" id="img"/>
+	<div id = "disp"></div>
+	<script>
+	
+		//스크립트에서는 이벤트를 이용하지 않는 경우에는 만들어지지 않은 걸 사용 못한다.
+		// 스타일시트는 코드를 전부 읽고 화면에 랜더링 할 때 수행되기 때문에, 시트를 먼저 만들어도 실행이 나중에 됨
+		// 코드 작성 위치는 상관이 없음
+		var img = document.getElementById("img");
+		var imgname = ["pt1.png", "pt2.png", "pt3.png"];
+		var text = ["크로마팩1", "크로마팩2", "크로마팩3"];
+		var disp = document.getElementById("disp");
+		
+		//타이머를 생성해보자
+		var i = 0;
+		var timer = setInterval(function(){ //1000ms => 1초 간격으로 계속 함수 수행
+			i=i+1;
+			img.src = ".././../Resources/images/" + imgname[i%imgname.length];
+			disp.innerHTML = text[i % text.length];
+		},1000)
+		
+		
+		//============================================================//
+		
+		// 접속한 기기정보와 브라우저 정보를 출력해보자
+		var userAgent = navigator.userAgent;
+		//alert(userAgent);
+		
+		// 모바일 운영체제 이름 배열을 생성
+		// apple 제품은 iphone과 ipad를 구분 가능
+		// android 제품은 스마트폰과 태블릿 구분이 안됨
+		// 모바일 페이지를 만들 때, android를 고려하는 경우 pc 버전이라는 버튼을 추가함
+		var mobile = ["iphone", "ipod", "android"];
+		// ★ userAgent의 리턴 값에 mobile 배열 값이 있는지 알아내야 한다.
+		
+		var result = false;
+		for(var idx in mobile){
+			if(userAgent.toLowerCase().indexOf(mobile[idx])>=0){
+				result = true;
+				break;
+			}
+		}
+		
+		if(result == true){
+			alert("스마트폰에서 접속");
+		}else{
+			alert("pc에서 접속");
+		}
+		
+	</script>
+
+</body>
+</html>

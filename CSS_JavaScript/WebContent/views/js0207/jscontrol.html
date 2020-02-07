@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>자바스크립트 제어문</title>
+
+<script>
+	/*
+	for(var i=1; i<=10; i=i+1){
+		document.write("<p>" + "Hello javascript" + i + "</p>");
+	} */
+	
+	//for를 while로 바꿔보기
+	/* var j = 1;
+	while(j<=10){
+		document.write("<p>" + "Hello javascript" + j + "</p>");
+		j=j+1;
+	} */
+	
+	/*do-while로 바꿔보기 (무조건 한 번은 시행해야 할 때)
+	var k=1;
+	do{document.write("<p>" + "Hello javascript" + k + "</p>");
+	k=k+1;}while(k<=10);
+	
+	var ar = ["wuhan", "corona", "virus"];
+	for(var temp in ar){
+		document.write("<p>" + ar[temp] + "</p>"); //그냥 temp라고 하면 0,1,2라는 인덱스 값이 나와버린다
+	}
+	*/
+	
+	/*location 객체의 모든 속성을 확인해보고 싶다면??
+	for (var attr  in location){
+		document.write("<p>" + attr + "</p>");
+	}
+	
+	document.write("<br/>");
+	*/
+	
+	/*
+	for(var line=0; line<5; line=line+1){
+		for(var i=0; i<=-line+4; i=i=1){
+			document.write("*");
+		}
+		document.write("<br/>");
+	}
+	
+	//1부터 10까지 출력 - 3의 배수가 되면 종료
+	for(var i=1; i<11; i=i+1){
+		if(i%3==0){
+			break;
+			document.write(i+"<br/>");
+		}
+	}
+	
+	for(var i=1; i<11; i=i+1){
+		if(i%3==0){
+			continue;
+			document.write(i+"<br/>");
+		}
+	}
+	*/
+	
+	
+
+</script>
+
+
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>사용자 정의 객체</title>
+
+<script>
+	// 속성이름은 문자열로 만들어져야 하기 때문에 ""를 생략해도 무방하다.
+	var obj = {name:"진", age:32, disp:function(){document.write(this.name + ":" + this.age);}}
+	// js나 python에서는 자기 멤버를 호출해야 할 때 this로 불러내야 한다.
+	
+	obj.disp(); //함수를 호출!
+	document.write("<br/>");
+	document.write(obj.name + ":" + obj["age"]);
+	document.write("<br/>" + ("name" in obj)); //name이라는 속성이 obj객체에 있니?? > true
+	document.write("<br/>" + ("phone" in obj)); //false
+	
+	ver Person = function(name,age){
+		this.name = name;
+		this.age = age;
+		this.disp() = function(){
+			document.write(this.name + ":" + this.age);
+		}
+	}
+	
+	
+	var person1 = new Person("이순신", 80);
+	person1.disp();
+	
+	//속성 추가해보기
+	person1.address = "서울";
+	delete(person1.age); //속성 제거해보기
+	person1.disp();
+	
+</script>
+
+
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>함수 실습</title>
+</head>
+<body>
+
+<script>
+
+	var func = function(){
+		console.log("This is function");
+	}
+	
+	func();
+	//()을 하지 않고 함수를 호출하면 함수가 저장된 곳의 위치나 함수의 내용이 나와버린다.
+	document.write(func);
+
+	var func1 = function(a,b){
+		console.log(a);
+		console.log(b);
+	}
+	
+	//2개의 매개변수를 대입해서 함수를 호출
+	func1(100,200);
+	
+	//2개의 매개변수가 필요한데, 1개만 넣어보면?
+	func1(300);
+	
+	// 매개변수가 없는데 매개변수를 넣을 수 있는 경우
+	// ▶ arguments라는 배열로 매개변수를 받을 수 있다.
+	// 자바스크립트나 파이썬의 함수들은 도큐먼트를 읽어야 사용이 가능하다.
+	var func2= function(){
+		for (var i in arguments){
+			console.log(arguments[i]);
+		}
+	}
+	func2(900,300,600);
+	
+	
+	// 함수가 함수를 리턴해서 내부의 데이터를 조작 할 수 있도록 하는 것을 closure라고 한다
+	var f = function(){
+		var inner = 0;
+		// 함수를 리턴
+		return function(){
+			inner = inner + 1;
+			document.write("<br/>" + inner)
+		}
+	}
+	
+	var k = f(); //f를 호출한 결과가 k에 계속 저장 => k도 결국 함수가 됨
+	k()
+	k()
+	
+	/*alert ("메세지 대화상자")
+	var result = confirm("진짜로 삭제하시겠습니까?");
+	document.write("<br/>" + result); //예면 true, 아니오면 false를 리턴한다.
+
+	var result2 = prompt("메세지를 입력하세요.");
+	document.write("<br/>" + result2); //입력값을 리턴하는데 취소를 누르면 null을 리턴한다.
+	*/
+	
+	var url = "http://www.daum.net?name=나&addr=서울"
+	document.write("<br/>" + escape(url));
+	document.write("<br/>" + encodeURI(url));
+	document.write("<br/>"+ encodeURIComponent(url));
+	
+	
+	var str = "1234";
+	document.write("<br/>" +(str + 1)); //문자열 +1이기 때문에 그냥 12341로 출력될 것
+	document.write("<br/>" + (parseInt(str)+1)); //문자열이 숫자로 제대로 바뀐다면 1235가 나와야 함
+	
+	//paserInt를 사용하지 않고 정수로 바꿔본다면?
+	var x = 0;
+	for (var i =0; i<str.length; i=i+1){
+		x = x*10 + (str.charCodeAt(i)-48); //계산기의 원리
+	}
+	document.write("<br/>" + (x+1));
+	
+</script>
+
+</body>
+</html>
