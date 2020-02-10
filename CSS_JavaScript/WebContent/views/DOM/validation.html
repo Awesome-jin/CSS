@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>웹 브라우저에서의 유효성 검사</title>
+</head>
+<body>
+
+	<form action = "server.jsp" id="myform">
+		<div id = "errordiv"></div>
+		<label for = "email">이메일</label>
+		<input type = "text" size = "40" id="email" name="email"/><br/>
+		
+		<label for = "pw">비밀번호</label>
+		<input type = "password" size = "20" id = "pw" name = "pw"/><br/>
+		
+		<label for = "name">이름</label>
+		<input type = "name" size = "15" id="name" name="name"/><br/>
+		
+		<input type = "submit" value = "전송"/>
+	</form>
+
+	<script>
+	
+		//body에서 생성한 변수들 필요한 것 가져오기
+		var myform = document.getElementById("myform");
+		var errordiv = document.getElementById("errordiv");
+		var email = document.getElementById("email");
+		var pw = document.getElementById("pw");
+		var name = document.getElementById("name");
+		
+		
+		//이메일 정규식을 생성
+		var emailreg = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+
+		//비밀번호 정규식을 생성
+		var pwreg = /^.*(?=^.{8,15}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*$/;
+		
+		//폼의 전송 이벤트가 발생하면 유효성 검사를 수행
+		myform.addEventListener("submit", function(e){
+			if(emailreg.test(email.value)==false){ //이메일 정규식란에 emailreg가 포함이 되지 않았다면
+				alert("이메일 입력 형식이 잘못되었습니다."); // 에러메세지를  출력한다.
+				// div에 출력해주려면? errordiv.innerHTML ="이메일 형식이 잘못되었습니다."
+				errordiv.style.color = "red";
+				email.focus(); //포커스를 이동
+				
+				// 기본적으로 제공되는 이벤트 처리 코드 제거 - 폼의 데이터가 전송되지 않음
+				var evt = window.event || e;
+				evt.preventDefault();
+				return;
+			}
+			
+			if(pwreg.test(pw.value)==false){ 
+				alert("비밀번호 형식이 잘못 되었습니다."); 
+				// div에 출력해주려면? errordiv.innerHTML ="비밀번호 형식이 잘못되었습니다."
+				errordiv.style.color = "red";
+				pw.focus(); //포커스를 이동
+				
+				// 기본적으로 제공되는 이벤트 처리 코드 제거 - 폼의 데이터가 전송되지 않음
+				var evt = window.event || e;
+				evt.preventDefault();
+				return;
+			}
+		})
+		
+		//예외 처리
+		try{
+			var ar = new Array(4300000000);
+		}catch(e){
+			console.log(e); //catch에 e내용 출력. 만약 try에서 문제가 생기더라도 catch로 가기 때문에 alert 수행가능
+		}
+		alert ("여기까지 수행");
+
+	</script>
+</body>
+</html>
