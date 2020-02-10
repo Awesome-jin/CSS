@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>다양한 이벤트 처리</title>
+</head>
+
+<script>
+	//window.addEventListener... : 윈도우가 로드되면 function을 수행해라.
+	// window가 로드된다? 태그를 전부 읽고 메모리에 올려라 >> 이게 없으면 순서대로 읽기 때문에 name이 더 밑에 있어서 null이 된다.
+	window.addEventListener('load', function(e){
+		var n =document.getElementById("name");
+		n.value = "이름을 입력하세요!"
+	
+	
+	//포커스가 생길 때 메소드 수행
+	n.addEventListener("focusin", function(e){
+		this.style.backgroundColor = "yellow";
+	});
+	
+	//포커스가 없어질 때 메소드 수행
+	n.addEventListener("focusout", function(e){
+		this.style.backgroundColor = "grey";
+	});
+	
+	//키보드를 눌렀을 때 누른 키 값을 대화 상자에 출력
+	n.addEventListener("keydown", function(e){
+		var e = window.event || e; //이벤트 객체를 만들기
+		var code = e.which ? e.which : e.keyCode //누른 키 값을 가져오기
+		alert(code)
+	});
+	
+});	
+	
+</script>
+
+<body>
+
+	<input type = "text" id="name" size="20"/>
+	<input type = "text" id="phone" size="20"/>
+
+</body>
+</html>
+
