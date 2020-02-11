@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<div id="disp"></div>
+
+<!--  jquery 링크 설정 -->
+<!--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
+<script src= "../.././jsquery/jquery.js"></script>
+
+<!-- jquery 링크를 달았기 때문에 아래 스크립트 부분은 jquery를 사용 가능함 -->
+<script>
+	$.ajax({
+			url:'data.json', 
+			dataType : 'json',
+			//매개변수 data는 파싱한 결과가 온 것
+			success : function(data){
+				alert(data);
+			}
+	});
+</script>
+
+
+</body>
+</html>
